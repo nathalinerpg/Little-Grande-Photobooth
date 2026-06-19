@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#D2E4E5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ALOHA!">
+<title>ALOHA! Photobooth</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<section id="home" class="screen active home-screen">
+  <div class="home-card">
+    <h1>ALOHA!</h1>
+    <button id="startBtn" class="primary start-button">START</button>
+    <button id="adminBtn" class="admin-link">Admin</button>
+  </div>
+</section>
+
+<section id="booth" class="screen booth-screen">
+  <header class="topbar">
+    <button id="homeBtn" class="secondary small">Home</button>
+    <strong id="statusText">Camera Preview</strong>
+    <button id="adminBtn2" class="secondary small">Admin</button>
+  </header>
+  <div class="booth-grid">
+    <div class="camera-panel">
+      <video id="video" autoplay playsinline muted></video>
+      <div id="cameraMessage" class="camera-message">Tap START to allow camera access.</div>
+      <div id="countdown" class="countdown"></div>
+      <div id="flash" class="flash"></div>
+    </div>
+    <div class="strip-panel"><canvas id="stripCanvas" width="600" height="1800"></canvas></div>
+  </div>
+  <footer class="action-bar">
+    <button id="captureBtn" class="primary">Take Photos</button>
+    <button id="printFromBoothBtn" class="secondary">Print</button>
+    <button id="saveFromBoothBtn" class="secondary">Save</button>
+    <button id="shareFromBoothBtn" class="secondary">AirDrop</button>
+  </footer>
+</section>
+
+<section id="preview" class="screen preview-screen">
+  <header class="topbar">
+    <button id="previewHomeBtn" class="secondary small">Home</button>
+    <strong>Photo Strip Ready</strong>
+    <span></span>
+  </header>
+  <div class="preview-layout"><canvas id="previewCanvas" width="600" height="1800"></canvas></div>
+  <footer class="action-bar">
+    <button id="printBtn" class="primary">Print</button>
+    <button id="shareBtn" class="primary">AirDrop</button>
+    <button id="saveBtn" class="primary">Save</button>
+    <button id="retakeBtn" class="secondary">Retake</button>
+    <button id="doneBtn" class="secondary">Return Home</button>
+  </footer>
+</section>
+
+<section id="admin" class="screen admin-screen">
+  <div class="admin-card">
+    <div class="admin-header">
+      <h2>Admin Settings</h2>
+      <button id="closeAdminBtn" class="secondary small">Close</button>
+    </div>
+    <div class="admin-grid">
+      <label>App color <input id="settingAppColor" type="color"></label>
+      <label>Strip color <input id="settingStripColor" type="color"></label>
+      <label>Photo count <input id="settingPhotoCount" type="number" min="1" max="6"></label>
+      <label>Countdown seconds <input id="settingCountdown" type="number" min="1" max="10"></label>
+      <label>Default print copies <input id="settingCopies" type="number" min="1" max="20"></label>
+      <label>Auto-return seconds <input id="settingReturn" type="number" min="5" max="120"></label>
+      <label>Admin PIN <input id="settingPin" type="password"></label>
+      <label>Upload 2×6 template <input id="templateUpload" type="file" accept="image/*"></label>
+      <label>Top text <input id="topText" type="text"></label>
+      <label>Bottom text <input id="bottomText" type="text"></label>
+      <label class="check"><input id="settingAutoSave" type="checkbox"> Auto-save after session</label>
+      <label class="check"><input id="settingAutoPrint" type="checkbox"> Auto-open print screen</label>
+    </div>
+    <div class="admin-actions">
+      <button id="saveSettingsBtn" class="primary">Save Settings</button>
+      <button id="resetTemplateBtn" class="secondary">Reset Template</button>
+      <button id="resetStatsBtn" class="secondary">Reset Stats</button>
+    </div>
+    <div class="stats">
+      <div><strong id="statSessions">0</strong><span>Sessions</span></div>
+      <div><strong id="statPrints">0</strong><span>Prints</span></div>
+      <div><strong id="statShares">0</strong><span>Shares</span></div>
+    </div>
+  </div>
+</section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

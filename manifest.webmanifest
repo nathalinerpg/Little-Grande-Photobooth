@@ -1,0 +1,23 @@
+{
+  "name": "ALOHA! Photobooth",
+  "short_name": "ALOHA!",
+  "description": "Simple iPad event photobooth.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#D2E4E5",
+  "theme_color": "#D2E4E5",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
